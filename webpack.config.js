@@ -42,14 +42,28 @@ module.exports = {
 				use: ['style-loader', 'css-loader', 'less-loader']
 			},
 			{
-				test: /\.png/,
-				use: {
-					loader: 'url-loader',
-					options: {
-						limit: 10000
-					}
-				}
-			}
+        test: /\.(png|jpg|gif)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+              name: 'images/[name].[ext]'
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(html)$/,
+        use: {
+            loader: 'html-loader',
+            options: {
+                attrs: ['img:src', 'img:data-src', 'audio:src'],
+                minimize: true
+            }
+        }
+      }
+      
 		]
 	},
 	resolve: {
@@ -59,7 +73,6 @@ module.exports = {
 		}
 	},
 	plugins: [
-		new CleanWebpackPlugin(),
 		new webpack.BannerPlugin('sdsdsds'),
 		new HtmlWebpackPlugin({
 			template: __dirname + '/app/index.html'
