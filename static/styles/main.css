@@ -1,0 +1,15 @@
+.logo{
+	width: 100px;
+	height: 100px;
+	background-color: yellow;
+}
+.content{
+	color: red;
+}
+
+.show {
+	display: block;
+	width: 100px;
+	height: 100px;
+	background: red;
+}

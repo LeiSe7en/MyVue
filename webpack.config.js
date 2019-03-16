@@ -1,17 +1,22 @@
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
 	devtool: 'eval-source-map',
-	entry: __dirname + '/app/main.js',
+	entry: {
+		app: __dirname + '/src/main.js'
+	},
 	output: {
 		path: __dirname + '/dist',
-		filename: 'demo.js'
+		filename: 'demo.js',
+		publicPath: "/"
 	},
 	devServer: {
 		port: 3001,
-		contentBase: './dist',
-		inline: true
+		contentBase: './',
+		inline: true,
+		stats: 'errors-only'
 	},
 	module: {
 		rules: [
@@ -24,18 +29,19 @@ module.exports = {
 			},
 			{
 				test: /\.css$/,
-				use: [
-					{
-						loader: 'style-loader'
-					},
-					{
-						loader: 'css-loader',
-						options: {
-							modules: true,
-							localIdentName: '[name]__[local]--[hash:base64:5]'
-						}
-					}
-				]
+				use: ExtractTextPlugin.extract({
+          fallback: {
+            loader: 'style-loader',
+            options: {
+              singleton: false // 为true表示将页面上的所有css都放到一个style标签内
+            }
+          },
+          use: [
+          	{
+          		loader: 'css-loader'
+          	}
+          ]
+	      })
 			},
 			{
 				test: /\.less$/,
@@ -48,7 +54,11 @@ module.exports = {
             loader: 'url-loader',
             options: {
               limit: 10000,
-              name: 'images/[name].[ext]'
+              //这是带着文件路径的name，当图片大于limit的时候用到
+              name: '[name].[ext]',
+              //当图片大于limit的时候就会用到这个outputPath将图片打包到这个路径下
+              outputPath: 'images',
+              publicPath: 'images',
             }
           }
         ]
@@ -63,19 +73,20 @@ module.exports = {
             }
         }
       }
-      
 		]
 	},
 	resolve: {
 		// 因为默认找到的vue库是runtime库，所以要用runtime加编译的
 		alias: {
-			'vue$': 'vue/dist/vue.esm.js'
+			'vue$': 'vue/dist/vue.esm.js',
+			'@': __dirname + '/src'
 		}
 	},
 	plugins: [
-		new webpack.BannerPlugin('sdsdsds'),
 		new HtmlWebpackPlugin({
-			template: __dirname + '/app/index.html'
-		})
+			template: __dirname + '/src/App.html'
+		}),
+		new CleanWebpackPlugin(),
+		new ExtractTextPlugin('css/main.css')
 	]
 }	
