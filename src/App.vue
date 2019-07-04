@@ -1,7 +1,9 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <div class="container mx-auto">
+      <img src="./assets/logo.png">
+      <router-view/>
+    </div>
   </div>
 </template>
 
@@ -20,4 +22,5 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
 </style>

@@ -8,10 +8,25 @@
 				]
 			}
 		},
+		methods: {
+			clickMe () {
+				alert('sdsdsdss')
+			}
+		},
 		render (h, context) {
 			return (
-				<div>
-				{this.articles.map(article => <article>{article}</article>)}
+				<div class="sm flex">
+					<n-switch/>
+					<n-card shadow={"hover"}>
+						<div slot="header">sdsdss</div>
+						<img src="https://cdn.walkthechat.com/assets/uploads/5bda969844cb5b14af95a536/36430ae0e49a11e882b7a7b2ae11b5e8.jpeg?x-oss-process=image/resize,l_500,limit_0" class="w-full mx-auto"></img>
+					</n-card>
+					<n-card shadow={"hover"}>
+						<div slot="header">sdsdss</div>
+						<img src="https://cdn.walkthechat.com/assets/uploads/5bda969844cb5b14af95a536/36430ae0e49a11e882b7a7b2ae11b5e8.jpeg?x-oss-process=image/resize,l_500,limit_0" class="w-full mx-auto"></img>
+					</n-card>
+
+
 				</div>
 			)
 		}
