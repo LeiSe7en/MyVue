@@ -1,19 +1,23 @@
 <template>
-  <div id="app">
-    <div class="container mx-auto">
-      <img src="./assets/logo.png">
+  <div class="container">
+    <aside style="width: 240px;">
+      <SideMenu/>
+    </aside>
+    <section style="flex: 1;">
       <router-view/>
-    </div>
+    </section>
   </div>
 </template>
 
 <script>
+import SideMenu from '@/components/SideMenu'
 export default {
-  name: 'App'
+  name: 'App',
+  components: {SideMenu}
 }
 </script>
 
-<style>
+<style lang="less">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -22,5 +26,12 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-
+.container{
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  flex-basis: auto;
+  box-sizing: border-box;
+  min-width: 0;
+}
 </style>
