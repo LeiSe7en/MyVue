@@ -11,6 +11,18 @@
 				type: String,
 				default: 'vertical'
 			}
+		},
+		data () {
+			return {
+				menuState: {
+					activeItem: null
+				}
+			}
+		},
+		provide () {
+			return {
+				menuState: this.menuState
+			}
 		}
 	}
 </script>

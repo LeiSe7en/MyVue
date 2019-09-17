@@ -2,7 +2,8 @@ import Modal from './Modal'
 import Button from './Button'
 import Menu from './Menu/Menu'
 import MenuItem from './Menu/MenuItem'
-const components = [Modal, Button, MenuItem, Menu]
+import SubMenu from './Menu/SubMenu'
+const components = [Modal, Button, MenuItem, Menu, SubMenu]
 const install = function (Vue, opts = {}) {
 	console.log(components)
 	components.forEach(component => {
