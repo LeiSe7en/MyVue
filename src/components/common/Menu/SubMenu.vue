@@ -81,7 +81,6 @@ import { addClass, removeClass } from '@/utils/dom'
 		  }
 		},
 		mounted () {
-			console.log(this._uid)
 		}
 	}
 </script>

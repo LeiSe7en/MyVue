@@ -6,9 +6,9 @@ import SubMenu from './Menu/SubMenu'
 const components = [Modal, Button, MenuItem, Menu, SubMenu]
 const install = function (Vue, opts = {}) {
 	console.log(components)
-	components.forEach(component => {
-		Vue.component(component.name, component)
-	})
+	// components.forEach(component => {
+	// 	Vue.component(component.name, component)
+	// })
 }
 
 export default {

@@ -1,19 +1,23 @@
-<template>
-  <div class="container">
-    <aside style="width: 240px;">
-      <SideMenu/>
-    </aside>
-    <section style="flex: 1;">
-      <router-view/>
-    </section>
-  </div>
-</template>
+
 
 <script>
 import SideMenu from '@/components/SideMenu'
 export default {
   name: 'App',
-  components: {SideMenu}
+  filters: {
+    sdsds: function (value) {
+      if (!value) return ''
+      value = value.toString()
+      return value.charAt(0).toUpperCase() + value.slice(1)
+    }
+  },
+  render (h) {
+    return h(SideMenu)
+  },
+  mounted () {
+  },
+  beforeMount () {
+  }
 }
 </script>
 
