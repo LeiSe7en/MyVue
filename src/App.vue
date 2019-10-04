@@ -1,9 +1,20 @@
-
-
+<template>
+  <div>
+    <router-view></router-view>
+  </div>
+</template>
 <script>
 import SideMenu from '@/components/SideMenu'
 export default {
   name: 'App',
+  components: {
+    SideMenu
+  },
+  data () {
+    return {
+      value: 'sdsds'
+    }
+  },
   filters: {
     sdsds: function (value) {
       if (!value) return ''
@@ -12,7 +23,15 @@ export default {
     }
   },
   render (h) {
-    return h(SideMenu)
+    return h('router-view')
+    // let self = this
+    // return h('input', {
+    //   domProps: {
+    //     value: this.value
+    //   }
+    // }, [
+    //     h('RouterView')
+    //   ])
   },
   mounted () {
   },

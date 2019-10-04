@@ -10,6 +10,13 @@ Test.prototype.init = function () {
 	console.log('prototype init')
 }
 
+function TestPrototypeFunction () {}
+TestPrototypeFunction.prototype.sayHi = function () {console.log('Hi')}
+TestPrototypeFunction.sayStaticHi = function () {console.log('Static hi')}
+let instance = new TestPrototypeFunction()
+console.log(instance.sayStaticHi) // ƒ () {console.log('Hi')}
+
+
 let Obj = {}
 
 Object.defineProperty(Obj, 'name', {
@@ -29,6 +36,10 @@ console.log(Obj) // {name: Nelson}
 console.log(JSON.parse(JSON.stringify(Obj))) // {} /*因为不可枚举的属性，stringify是不能字符串化的*/ 
 export default Test
 
+let testArray = [1,2,3,4,5,6,7,8,9,10,11,12]
+for (let i = 0; i < testArray.length; i++) {
+	console.log('testArray', i)
+}
 
 export class TestClass {
 	constructor () {
@@ -41,37 +52,24 @@ export class TestClass {
 	sayHi () {
 		console.log('Hi')
 	}
+
+	/*
+		Class 里面的get/set函数实际上都是定义在prototype的html属性的discriptor上面的
+	*/
+	get html () {
+		return 'html'
+	}
+
+	set html (val) {
+		console.log('Set html to' + 'val')
+	}
 }
 
+let desc = Object.getOwnPropertyDescriptor(TestClass.prototype, 'html')
+console.log(desc)
 console.log(new TestClass().sayHi())
 console.log(TestClass.sayStatic()) // Static
-console.log(new TestClass().sayStatic())
-// let nums = '5 2 8 1 6 3 4 7'
-// let rules = ['R', 'L', 'L', 'R', 'L', 'L', 'R']
-// let length = rules.length 
-//  let groups = []
 
-// function getResult (arr, rules) {
-//   if (rules.length == 0) {
-//     return arr
-//   }
-//   let map = {
-//     L: [],
-//     R: []
-//   }
-//   for(let i = 0; i < arr.split(' ').length; i++){ // split 是拆分字符串
-//     if (i%2 == 0) {
-//      map.L.push(arr.split(' ')[i]) // 这两行是分成两个数组
-//     } else {
-//      map.R.push(arr.split(' ')[i])
-//     }
-//   }
-//   let newNum = [], newRules = rules.slice(map.L.length) // 得到新的rules 就是把之前的截断
-//   for (let j = 0; j < map.L.length; j++) {
-//     newNum.push(map[rules[j]][j]) 
-//   }
-//   return getResult(newNum.join(' '), newRules)
-// }
-
-// console.log(getResult(nums, rules))
+/*Uncaught TypeError: (intermediate value).sayStatic is not a function*/
+// console.log(new TestClass().sayStatic()) 
 

@@ -3018,7 +3018,7 @@
       this.$slots = this.slots();
       this.$scopedSlots = normalizeScopedSlots(data.scopedSlots, this.$slots);
     }
-
+    
     if (options._scopeId) {
       this._c = function (a, b, c, d) {
         var vnode = createElement(contextVm, a, b, c, d, needNormalization);
@@ -3368,7 +3368,7 @@
       );
       return createEmptyVNode()
     }
-    console.log('_createElement', tag)
+    console.log('_createElement', context.$options)
     // object syntax in v-bind
     if (isDef(data) && isDef(data.is)) {
       tag = data.is;
@@ -4956,8 +4956,9 @@
   function initMixin (Vue) {
     Vue.prototype._init = function (options) {
       var vm = this;
+
       // a uid
-      debugger
+      
       vm._uid = uid$2++;
 
       var startTag, endTag;
@@ -5012,7 +5013,7 @@
   }
 
   function initInternalComponent (vm, options) {
-    debugger
+    
     var opts = vm.$options = Object.create(vm.constructor.options);
     // doing this because it's faster than dynamic enumeration.
     var parentVnode = options._parentVnode;
@@ -5077,7 +5078,7 @@
     console.log('new Vue')
     this._init(options);
   }
-
+  
   initMixin(Vue);
   stateMixin(Vue);
   eventsMixin(Vue);
@@ -5088,6 +5089,7 @@
 
   function initUse (Vue) {
     Vue.use = function (plugin) {
+      
       var installedPlugins = (this._installedPlugins || (this._installedPlugins = []));
       if (installedPlugins.indexOf(plugin) > -1) {
         return this
@@ -5944,14 +5946,12 @@
         setScope(vnode);
 
         /* istanbul ignore if */
-        {
-          createChildren(vnode, children, insertedVnodeQueue);
-          if (isDef(data)) {
-            invokeCreateHooks(vnode, insertedVnodeQueue);
-          }
-          insert(parentElm, vnode.elm, refElm);
+        createChildren(vnode, children, insertedVnodeQueue);
+        if (isDef(data)) {
+          invokeCreateHooks(vnode, insertedVnodeQueue);
         }
-
+        insert(parentElm, vnode.elm, refElm);
+        
         if ( data && data.pre) {
           creatingElmInVPre--;
         }
@@ -11477,7 +11477,7 @@
   var prohibitedKeywordRE = new RegExp('\\b' + (
     'do,if,for,let,new,try,var,case,else,with,await,break,catch,class,const,' +
     'super,throw,while,yield,delete,export,import,return,switch,default,' +
-    'extends,finally,continue,debugger,function,arguments'
+    'extends,finally,continue,,function,arguments'
   ).split(',').join('\\b|\\b') + '\\b');
 
   // these unary operators should not be used as property/method names
@@ -11673,7 +11673,7 @@
       options = extend({}, options);
       var warn$1 = options.warn || warn;
       delete options.warn;
-
+      
       /* istanbul ignore if */
       {
         // detect possible CSP restriction
@@ -11898,6 +11898,7 @@
     }
 
     var options = this.$options;
+    
     // resolve template/el and convert to render function
     if (!options.render) {
       var template = options.template;

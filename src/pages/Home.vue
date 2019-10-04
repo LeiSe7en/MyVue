@@ -12,11 +12,28 @@
 		name: 'sss',
 		data () {
 			return {
-				visible: false
+				visible: false,
+				value: 'dsds'
 			}
 		},
 		render (h) {
-			return h('nl-button')
+			// return h('div', {
+			// 	style: {
+			// 		width: '100%',
+			// 		height: '200px'
+			// 	}
+			// }, [])
+			var self = this
+			return h('input', {
+			  domProps: {
+			    value: self.value
+			  },
+			  on: {
+			    input: function (event) {
+			      self.$emit('input', event.target.value)
+			    }
+			  }
+			})
 		},
 		mounted () {
 			// let el = this.$el
