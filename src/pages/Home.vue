@@ -1,39 +1,33 @@
-<!-- <template>
+<template>
 	<div >
-		<v-modal :title="'标题'" v-model="visible">
-			<template>sdsdsdssd</template>
-		</v-modal>
-		<nl-button round type="primary" label="成功按钮" @click="visible = true"></nl-button>
-		<font-awesome-icon icon="power-off" size="lg"/>
+		<!-- <div style="height: 100vh;" class="flex flex-col">
+			<MainHeader></MainHeader>
+			<div class="flex-1" style="background-image: url('https://b2-q.mafengwo.net/s15/M00/C5/57/CoUBGV2UsG2AKEOcAB3GuPtBkPI291.png?imageMogr2%2Finterlace%2F1')"></div>
+		</div> -->
+		<div style="height: 100vh;" class="flex flex-col">
+			<MainHeader></MainHeader>
+			<nl-carousel>
+				<nl-carousel-item>
+					<div class="h-full bg-cover bg-no-repeat" style="background-image: url('https://b2-q.mafengwo.net/s15/M00/C5/57/CoUBGV2UsG2AKEOcAB3GuPtBkPI291.png?imageMogr2%2Finterlace%2F1')"></div>
+				</nl-carousel-item>
+				<nl-carousel-item>
+					<div class="h-full bg-cover bg-no-repeat" style="background-image: url('http://b3-q.mafengwo.net/s15/M00/06/C6/CoUBGV2PnqaAAX0vAAYBRtqCiQ086.jpeg?imageMogr2%2Fstrip')"></div>
+				</nl-carousel-item>
+			</nl-carousel>
+			
+		</div>
 	</div>
-</template> -->
+</template>
 <script>
+	import MainHeader from '@/components/MainHeader'
 	export default {
 		name: 'sss',
+		components: {MainHeader},
 		data () {
 			return {
 				visible: false,
 				value: 'dsds'
 			}
-		},
-		render (h) {
-			// return h('div', {
-			// 	style: {
-			// 		width: '100%',
-			// 		height: '200px'
-			// 	}
-			// }, [])
-			var self = this
-			return h('input', {
-			  domProps: {
-			    value: self.value
-			  },
-			  on: {
-			    input: function (event) {
-			      self.$emit('input', event.target.value)
-			    }
-			  }
-			})
 		},
 		mounted () {
 			// let el = this.$el

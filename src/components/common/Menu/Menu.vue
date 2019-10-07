@@ -1,6 +1,6 @@
 <template>
-	<div class="menu w-full p-4">
-		<slot></slot>		
+	<div class="nl-menu" :class="mode == 'horizontal' ? 'flex' : ''">
+		<slot></slot>
 	</div>
 </template>
 <script>
@@ -15,7 +15,8 @@
 		data () {
 			return {
 				menuState: {
-					activeItem: null
+					activeItem: null,
+					mode: this.mode
 				}
 			}
 		},

@@ -18,8 +18,8 @@ library.add(solid)
 library.add(regular)
 library.add(brands)
 Vue.config.productionTip = false
-// Vue.use(Common)
-// Vue.component('font-awesome-icon', FontAwesomeIcon)
+Vue.use(Common)
+Vue.component('font-awesome-icon', FontAwesomeIcon)
 /* eslint-disable no-new */
 // console.log(new Test())
 // Vue.mixin({

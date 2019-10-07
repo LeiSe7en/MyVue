@@ -1,5 +1,5 @@
 <template>
-	<div class="submenu select-none collapse-enter-active" >
+	<div class="submenu select-none collapse-enter-active">
 		<div class="flex p-1" @click.stop="toggle(_uid)" >
 			<div class="menu-icon">
 				<slot name="icon"></slot>
@@ -12,7 +12,7 @@
 			@before-enter="beforeEnter"
 			@enter="enter"
 			@leave="leave">
-			<div v-show="active" :ref="_uid" class="side-submenu bg-gray-300 overflow-hidden border-l-2 border-indigo-500 py-0">
+			<div v-show="active" :ref="_uid" class="side-submenu bg-gray-300 overflow-hidden border-l-2 border-indigo-500 py-0" :class="menuState.mode == 'horizontal' ? 'absolute' : 'relative'">
 				<slot name="menu"></slot>
 			</div>
 		</transition>

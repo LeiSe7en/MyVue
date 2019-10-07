@@ -5,7 +5,7 @@
 			name: String
 		},
 		render (h) {
-			h('div', 'So many articles')
+			return h('div', {class: 'w-full h-20 bg-gray-500 font-bold'}, [h('p', 'So many Articles')])
 		}
 	}
 </script>
