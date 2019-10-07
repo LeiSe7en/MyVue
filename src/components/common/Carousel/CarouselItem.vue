@@ -1,7 +1,7 @@
 <template>
-	<div class="h-full w-full absolute">
+	<p class="h-full w-full absolute">
 		<slot></slot>
-	</div>
+	</p>
 </template>
 <script>
 	export default {

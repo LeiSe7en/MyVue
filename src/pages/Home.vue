@@ -26,7 +26,8 @@
 		data () {
 			return {
 				visible: false,
-				value: 'dsds'
+				value: 'dsds',
+				currentIndex: 0
 			}
 		},
 		mounted () {

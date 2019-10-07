@@ -82,7 +82,7 @@
    * forEach for object
    */
   function forEachValue (obj, fn) {
-    Object.keys(obj).forEach(function (key) { return fn(obj[key], key); });
+    Object.keys(obj).forEach(function (key) {   ; });
   }
 
   function isObject (obj) {
