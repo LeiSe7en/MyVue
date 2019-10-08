@@ -1,6 +1,8 @@
 version: 2.1
 jobs:
   build:
+    docker:
+      - image: alpine:3.7
     steps:
       - run:
           name: The First Step
@@ -13,4 +15,3 @@ jobs:
             ls -al
             echo '^^^ That should look familiar^^^'
       - run: npm install
-      - run: npm run build
