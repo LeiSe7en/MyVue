@@ -13,8 +13,10 @@ jobs:
     working_directory: ~/repo
 
     steps:
+      - add_ssh_keys:
+          fingerprints: "1f:a1:18:0a:81:8b:e0:f8:d9:4e:e2:42:c5:2a:dc:29"
+                         
       - checkout
-
       # Download and cache dependencies
       - restore_cache:
           keys:
@@ -23,7 +25,11 @@ jobs:
             - v1-dependencies-
 
       - run: rm -rf ./dist
-      - run: npm install;npm run build
+      - run: 
+          name: Install and build
+          command: |
+            npm install
+            npm run build
       - save_cache:
           paths:
             - node_modules
