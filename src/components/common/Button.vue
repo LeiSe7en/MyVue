@@ -52,7 +52,21 @@
 		&-default{
 			@apply .border-gray-500;
 			@apply .bg-gray-500;
-			@apply .text-gray-500;
+			@apply .text-white;
+		}
+	}
+	.carousel__nav{
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		top: 50%;
+		margin-top: -25px;
+		background-color: rgba(102, 153, 204, 0.5);
+		&.carousel__next{
+			right: 0;
+		}
+		&.carousel__prev{
+			left: 0;
 		}
 	}
 </style>

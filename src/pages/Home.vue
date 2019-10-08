@@ -14,7 +14,6 @@
 					<div class="h-full bg-cover bg-no-repeat" style="background-image: url('http://b3-q.mafengwo.net/s15/M00/06/C6/CoUBGV2PnqaAAX0vAAYBRtqCiQ086.jpeg?imageMogr2%2Fstrip')"></div>
 				</nl-carousel-item>
 			</nl-carousel>
-			
 		</div>
 	</div>
 </template>
