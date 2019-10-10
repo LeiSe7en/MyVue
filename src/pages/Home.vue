@@ -15,6 +15,21 @@
 				</nl-carousel-item>
 			</nl-carousel>
 		</div>
+		{{selectedOpt}}
+		<nl-select v-model="selectedOpt">
+			<nl-option
+			  :key="1"
+			  :value="'opt1'"
+			  :label="'opt1'"></nl-option>
+			<nl-option
+			  :key="2"
+			  :value="'opt1'"
+			  :label="'opt1'"></nl-option>
+			<nl-option
+			  :key="3"
+			  :value="'opt1'"
+			  :label="'opt1'"></nl-option>
+		</nl-select>
 	</div>
 </template>
 <script>
@@ -26,7 +41,13 @@
 			return {
 				visible: false,
 				value: 'dsds',
-				currentIndex: 0
+				currentIndex: 0,
+				selectedOpt: ''
+			}
+		},
+		provide() {
+			return {
+
 			}
 		},
 		mounted () {
