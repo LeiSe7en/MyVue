@@ -1,5 +1,5 @@
 <template>
-	<div class="nl-carousel__wrapper h-full relative">
+	<div class="nl-carousel__wrapper h-full relative overflow-hidden">
 		<slot></slot>
 		<div class="carousel__nav carousel__prev absolute" @click.prevent="prev"><</div>
 		<div class="carousel__nav carousel__next absolute" @click.prevent="next">></div>
