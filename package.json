@@ -13,13 +13,6 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "@fortawesome/fontawesome": "^1.1.8",
-    "@fortawesome/fontawesome-free-brands": "^5.0.13",
-    "@fortawesome/fontawesome-free-regular": "^5.0.13",
-    "@fortawesome/fontawesome-free-solid": "^5.0.13",
-    "@fortawesome/fontawesome-svg-core": "^1.2.22",
-    "@fortawesome/free-solid-svg-icons": "^5.10.2",
-    "@fortawesome/vue-fontawesome": "^0.1.6",
     "less": "^3.10.3",
     "tailwind": "^4.0.0",
     "vue": "^2.5.2",

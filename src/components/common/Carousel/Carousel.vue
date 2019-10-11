@@ -8,11 +8,28 @@
 <script>
 	export default {
 		name: 'nl-carousel',
+		props: {
+			mode: {
+				type: String,
+				default: 'normal',
+				validator: function (value) {
+					// return false 则证明校验不通过
+		      return ['normal', 'card'].indexOf(value) !== -1
+	      }
+			},
+			transition: {
+				type: String
+			},
+			autoPlay: {
+				type: Boolean
+			}
+		},
 		data () {
 			return {
 				currentIndex: 0,
 				slides: [],
-				direction: ''
+				direction: '',
+				autoLoopInterval: null
 			}
 		},
 		provide () {
@@ -45,6 +62,14 @@
     },
     mounted () {
       this.updateItems()
+      if (this.autoPlay) {
+      	this.autoLoopInterval = setInterval(() => {
+      		this.next()
+      	}, 3000)
+      }
+    },
+    beforeDestroy () {
+    	this.autoLoopInterval = null
     }
 	}
 </script>

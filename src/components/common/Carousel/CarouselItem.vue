@@ -1,6 +1,6 @@
 <template>
 	<transition :name="'slide-' + carousel.direction">
-		<p class="h-full w-full absolute" v-show="visible">
+		<p class="h-full w-1/2 absolute carousel-item__card" v-show="visible">
 			<slot></slot>
 		</p>
 	</transition>
@@ -21,7 +21,7 @@
 		computed: {
 			visible () {
 				console.log('visible')
-				return this.index == this.carousel.currentIndex
+				return this.index == this.carousel.currentIndex || (Math.abs(this.carousel.currentIndex - this.index) == 1) 
 			}
 		}
 	}
@@ -29,16 +29,16 @@
 <style>
  
 	.slide-left-enter-active{
-		animation: slideLeftIn 3s;
+		animation: slideLeftIn 1s;
 	}
 	.slide-left-leave-active{
-		animation: slideLeftOut 3s;
+		animation: slideLeftOut 1s;
 	}
 	.slide-right-enter-active{
-		animation: slideRightIn 3s;
+		animation: slideRightIn 1s;
 	}
 	.slide-right-leave-active{
-		animation: slideRightOut 3s;
+		animation: slideRightOut 1s;
 	}
 	
 	/* translateX的值指的是左边框距离父元素左边框的相对位移
@@ -77,6 +77,8 @@
 			transform: translateX(100%);
 		}
 	}
-	
+	.carousel-item__card{
+		transform: translateX(50%) scale(0.83);
+	}
 
 </style>
