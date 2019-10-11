@@ -22,6 +22,13 @@
 			},
 			autoPlay: {
 				type: Boolean
+			},
+			transition: {
+				type: String,
+				default: 'slide',
+				validator: (value) => {
+					return ['fade', 'slide'].indexOf(value) !== -1
+				}
 			}
 		},
 		data () {
@@ -29,7 +36,8 @@
 				currentIndex: 0,
 				slides: [],
 				direction: '',
-				autoLoopInterval: null
+				autoLoopInterval: null,
+				ready: false
 			}
 		},
 		provide () {
@@ -58,6 +66,9 @@
       prev () {
       	this.direction = 'right'
       	this.currentIndex == 0 ? this.currentIndex = this.slidesLength - 1 : this.currentIndex--
+      },
+      sayHello (index) {
+      	this.currentIndex = index
       }
     },
     mounted () {
@@ -67,6 +78,10 @@
       		this.next()
       	}, 3000)
       }
+      this.ready = true
+    },
+    created () {
+    	this.$on('sayHello', this.sayHello)
     },
     beforeDestroy () {
     	this.autoLoopInterval = null
@@ -82,6 +97,7 @@
 		text-align: center;
 		line-height: 50px;
 		margin-top: -25px;
+		z-index: 3;
 		background-color: rgba(102, 153, 204, 0.5);
 		&.carousel__next{
 			right: 0;

@@ -12,7 +12,15 @@ function broadcast(componentName, eventName, params) {
 export default {
   methods: {
     dispatch(componentName, eventName, params) {
-      
+      if (!componentName || !eventName) return false
+      let parent = this.$parent || this.$root
+      while (parent && parent.$options.name !== componentName) {
+        parent = parent.$parent
+      }
+      //this.$emit('eventName', params)
+      if (parent) {
+        parent.$emit.apply(parent, [eventName].concat(params))
+      }
     },
     broadcast(componentName, eventName, params) {
       broadcast.call(this, componentName, eventName, params);
