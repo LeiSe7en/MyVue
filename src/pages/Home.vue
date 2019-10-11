@@ -6,7 +6,7 @@
 		</div> -->
 		<div style="height: 100vh;" class="flex flex-col">
 			<MainHeader></MainHeader>
-			<nl-carousel transition="fade">
+			<nl-carousel transition="fade" autoPlay>
 				<nl-carousel-item>
 					<div class="h-full bg-cover bg-no-repeat" style="background-image: url('https://b2-q.mafengwo.net/s15/M00/C5/57/CoUBGV2UsG2AKEOcAB3GuPtBkPI291.png?imageMogr2%2Finterlace%2F1')"></div>
 				</nl-carousel-item>

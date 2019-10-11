@@ -17,9 +17,6 @@
 		      return ['normal', 'card'].indexOf(value) !== -1
 	      }
 			},
-			transition: {
-				type: String
-			},
 			autoPlay: {
 				type: Boolean
 			},

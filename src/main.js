@@ -4,14 +4,17 @@ import Vue from 'vue'
 import App from './App'
 import Test from './index.js'
 import { TestClass } from './index.js'
+import ElementUI from 'element-ui';
 import router from './router'
 import '../static/css/main.css'
+import 'element-ui/lib/theme-chalk/index.css';
 // import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 // import Card from './package/card'
 // import Switch from './package/switch'
 import Common from './components/common'
 Vue.config.productionTip = false
 Vue.use(Common)
+Vue.use(ElementUI);
 /* eslint-disable no-new */
 // console.log(new Test())
 // Vue.mixin({

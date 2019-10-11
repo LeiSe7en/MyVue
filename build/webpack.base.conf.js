@@ -10,10 +10,6 @@ function resolve (dir) {
 
 module.exports = {
   context: path.resolve(__dirname, '../'),
-  externals: {
-    vue: 'Vue',
-    'element-ui': 'ELEMENT'
-  },
   entry: {
     app: './src/main.js'
   },
