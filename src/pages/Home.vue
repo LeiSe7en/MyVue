@@ -26,6 +26,7 @@
 				</nl-carousel>
 			</div>
 		</div>
+
 		{{selectedOpt}}
 		<nl-select v-model="selectedOpt">
 			<nl-option
@@ -34,6 +35,7 @@
 			  :value="'opt' + opt"
 			  :label="'opt' + opt"></nl-option>
 		</nl-select>
+	<!-- 	<iframe width="560" height="315" src="https://www.youtube.com/embed/Bv_5Zv5c-Ts" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
 	</div>
 </template>
 <script>

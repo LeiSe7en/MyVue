@@ -7,14 +7,19 @@
   import Emitter from '@/mixins/emitter'
   export default {
     name: 'nl-option',
-    props: {
-      label: String,
-      value: String
-    },
     mixins: [ Emitter ],
     inject: {
       select: {
         default: null
+      }
+    },
+    props: {
+      label: String,
+      value: String
+    },
+    watch: {
+      value: function (newValue, oldValue) {
+        console.log('Option watch')
       }
     },
     computed: {
@@ -26,6 +31,9 @@
       selectOption () {
         this.dispatch('nl-select', 'selectOption', [this.value])
       }
+    },
+    created () {
+      console.log('Option created', this)
     }
   }
 </script>

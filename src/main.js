@@ -4,7 +4,8 @@ import Vue from 'vue'
 import App from './App'
 import Test from './index.js'
 import { TestClass } from './index.js'
-import ElementUI from 'element-ui';
+// import ElementUI from 'element-ui';
+import { Button, Select } from 'element-ui';
 import router from './router'
 import '../static/css/main.css'
 import 'element-ui/lib/theme-chalk/index.css';
@@ -14,7 +15,9 @@ import 'element-ui/lib/theme-chalk/index.css';
 import Common from './components/common'
 Vue.config.productionTip = false
 Vue.use(Common)
-Vue.use(ElementUI);
+// Vue.use(ElementUI);
+Vue.component(Button.name, Button)
+Vue.component(Select.name, Select)
 /* eslint-disable no-new */
 // console.log(new Test())
 // Vue.mixin({
