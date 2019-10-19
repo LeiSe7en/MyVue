@@ -1,9 +1,11 @@
 <template>
   <div class="nl-select">
-    <input ref="selectInput" class="border-gray-300 border-solid rounded border" type="text" :value="selectedValue" :disabled="true">
-    <SelectDropdown @selectOption="hello">
+    <input ref="selectInput" readonly="readonly" class="border-gray-300 border-solid rounded border" type="text" :value="selectedValue" @click="showDropdown = !showDropdown">
+    
+    <SelectDropdown v-model="showDropdown">
       <slot></slot>
     </SelectDropdown>
+
   </div>
 </template>
 <script>
@@ -16,7 +18,8 @@
     data () {
       return {
         inputWidth: 0,
-        selectedValue: null
+        selectedValue: null,
+        showDropdown: false
       }
     },
     provide () {
@@ -30,12 +33,31 @@
         console.log(this.$refs.selectInput.getBoundingClientRect().width)
         this.inputWidth = this.$refs.selectInput.getBoundingClientRect().width
       },
-      hello () {
-        debugger
+      handleSelectOption ($event) {
+        console.log('handleSelectOption')
+        this.selectedValue = $event
       }
     },
     mounted () {
       this.setInputWidth()
+    },
+    created () {
+      this.$on('selectOption', this.handleSelectOption)
     }
   }
 </script>
+<style>
+  .nl-zoom-in-top-enter-active, .nl-zoom-in-top-leave-active{
+   opacity: 1;
+   transform: scaleY(1);
+   transition: transform .3s cubic-bezier(.23,1,.32,1),opacity .3s cubic-bezier(.23,1,.32,1);
+   transform-origin: center top
+  }
+
+  
+  .nl-zoom-in-top-enter,.nl-zoom-in-top-leave-active {
+    opacity: 0;
+    transform: scaleY(0)
+  }
+
+</style>

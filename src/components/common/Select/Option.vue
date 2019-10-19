@@ -24,7 +24,7 @@
     },
     methods: {
       selectOption () {
-        this.dispatch('nl-select', 'selectOption', this.value)
+        this.dispatch('nl-select', 'selectOption', [this.value])
       }
     }
   }

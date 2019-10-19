@@ -1,16 +1,21 @@
 <template>
-  <ul class="nl-select-dropdown p-1" :style="styleObj">
-    <slot></slot>
-  </ul>
+  <transition name="nl-zoom-in-top">
+    <ul class="nl-select-dropdown p-1" :style="styleObj" v-show="value">
+      <slot></slot>
+    </ul>
+  </transition>
 </template>
 <script>
   export default {
-    name: 'nl-select',
+    name: 'nl-select-dropdown',
     data () {
       return {
         styleObj: {
         }
       }
+    },
+    props: {
+      value: Boolean
     },
     watch: { 
       "$parent.inputWidth" (val) {
