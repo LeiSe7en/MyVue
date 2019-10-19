@@ -4,7 +4,7 @@
 			<MainHeader></MainHeader>
 			<div class="flex-1" style="background-image: url('https://b2-q.mafengwo.net/s15/M00/C5/57/CoUBGV2UsG2AKEOcAB3GuPtBkPI291.png?imageMogr2%2Finterlace%2F1')"></div>
 		</div> -->
-		<div style="height: 100vh;" class="flex flex-col">
+		<!-- <div style="height: 100vh;" class="flex flex-col">
 			<MainHeader></MainHeader>
 			<nl-carousel transition="fade" autoPlay>
 				<nl-carousel-item>
@@ -23,7 +23,7 @@
 					<div class="h-full bg-cover bg-no-repeat" style="background-image: url('https://b1-q.mafengwo.net/s15/M00/FD/E5/CoUBGV2cdXqAGtqiACG30X9cs9M641.png?imageMogr2%2Finterlace%2F1')"></div>
 				</nl-carousel-item>
 			</nl-carousel>
-		</div>
+		</div> -->
 		{{selectedOpt}}
 		<nl-select v-model="selectedOpt">
 			<nl-option
@@ -40,11 +40,9 @@
 			  :label="'opt1'"></nl-option>
 		</nl-select>
 
-		<el-carousel :interval="4000" type="card" height="200px">
-		    <el-carousel-item v-for="item in 8" :key="item">
-		      <h3 class="medium">{{ item }}</h3>
-		    </el-carousel-item>
-		  </el-carousel>
+	<!-- 	<iframe width="560" height="315" src="https://www.youtube.com/embed/Bv_5Zv5c-Ts" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+
+
 	</div>
 </template>
 <script>
