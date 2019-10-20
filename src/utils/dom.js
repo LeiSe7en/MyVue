@@ -38,3 +38,10 @@ export function removeClass(el, cls) {
     el.className = trim(curClass);
   }
 };
+export function on (el, name, handler) {
+  if (document.addEventListener) {
+    el.addEventListener(name, handler)
+  } else {
+    el.attachEvent('on' + name, handler)
+  }
+}

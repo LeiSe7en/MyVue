@@ -1,7 +1,6 @@
 <template>
-  <div class="nl-select">
+  <div class="nl-select" v-click-outside="handleCloseSelect" >
     <input ref="selectInput" readonly="readonly" class="border-gray-300 border-solid rounded border" type="text" :value="selectedValue" @click="showDropdown = !showDropdown">
-    
     <SelectDropdown v-model="showDropdown">
       <slot></slot>
     </SelectDropdown>
@@ -10,10 +9,14 @@
 </template>
 <script>
   import SelectDropdown from './SelectDropdown'
+  import ClickOutside from '@/directives/click-outside'
   export default {
     name: 'nl-select',
     components: {
       SelectDropdown
+    },
+    directives: {
+      ClickOutside
     },
     data () {
       return {
@@ -34,8 +37,10 @@
         this.inputWidth = this.$refs.selectInput.getBoundingClientRect().width
       },
       handleSelectOption ($event) {
-        console.log('handleSelectOption')
         this.selectedValue = $event
+      },
+      handleCloseSelect () {
+        this.showDropdown = false
       }
     },
     mounted () {
@@ -47,17 +52,6 @@
   }
 </script>
 <style>
-  .nl-zoom-in-top-enter-active, .nl-zoom-in-top-leave-active{
-   opacity: 1;
-   transform: scaleY(1);
-   transition: transform .3s cubic-bezier(.23,1,.32,1),opacity .3s cubic-bezier(.23,1,.32,1);
-   transform-origin: center top
-  }
-
   
-  .nl-zoom-in-top-enter,.nl-zoom-in-top-leave-active {
-    opacity: 0;
-    transform: scaleY(0)
-  }
 
 </style>
