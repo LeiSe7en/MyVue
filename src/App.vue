@@ -1,5 +1,6 @@
 <template>
   <div>
+    <nl-confirm></nl-confirm>
     <router-view></router-view>
   </div>
 </template>
