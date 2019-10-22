@@ -26,8 +26,6 @@
 				</nl-carousel>
 			</div>
 		</div>
-
-		{{selectedOpt}}
 		<nl-select v-model="selectedOpt">
 			<nl-option
 				v-for="(index, opt) in 5"
