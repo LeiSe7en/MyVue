@@ -8,7 +8,7 @@
 			name: String
 		},
 		mounted () {
-			this.$confirm.show()
+			this.$confirm.show('这是标题', '这是body')
 		}
 	}
 </script>

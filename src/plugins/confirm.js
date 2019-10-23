@@ -7,7 +7,7 @@ const GlobalConfirm = {
 		Vue.component(Confirm.name, Confirm)
 		Vue.prototype.$confirm = {
 			show () {
-				GlobalConfirm.EventBus.$emit('show')
+				GlobalConfirm.EventBus.$emit('show', ...arguments)
 			},
 			hide () {
 				GlobalConfirm.EventBus.$emit('hide')

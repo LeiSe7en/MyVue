@@ -51,8 +51,7 @@
     },
     beforeDestroy () {
       console.log(this)
-    },
-    destroyed
+    }
   }
 </script>
 <style>
