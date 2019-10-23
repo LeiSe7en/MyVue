@@ -2,8 +2,9 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import Test from './index.js'
-import { TestClass } from './index.js'
+import Test from './javascript-sink-in/index.js'
+import ThisTest from './javascript-sink-in/this_test.js'
+import { TestClass } from './javascript-sink-in/index.js'
 // import ElementUI from 'element-ui';
 import { Button, Select } from 'element-ui';
 import confirm from '@/plugins/confirm'
