@@ -48,7 +48,11 @@
     },
     created () {
       this.$on('selectOption', this.handleSelectOption)
-    }
+    },
+    beforeDestroy () {
+      console.log(this)
+    },
+    destroyed
   }
 </script>
 <style>
