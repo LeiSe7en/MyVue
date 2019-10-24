@@ -2,8 +2,11 @@
 	<div class="w-full h-12 shadow bg-white">
 		<div class="container h-12 flex items-center justify-between">
 			<nl-menu mode="horizontal">
-				<div class="icon icon-logo w-8 h-8 bg-no-repeat">
-				</div>
+				<router-link :to="{name: 'Home'}">
+					<div class="icon icon-logo w-8 h-8 bg-no-repeat">
+						
+					</div>
+				</router-link>
 
 				<nl-submenu>
 					<template>
