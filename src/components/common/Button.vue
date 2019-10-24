@@ -30,12 +30,16 @@
 			label: {
 				type: String,
 				default: '按钮'
-			}
+			},
+			callback: Function
 		},
 		methods: {
 			handleClick(evt) {
         this.$emit('click', evt);
       }
+		},
+		mounted () {
+			this.callback && this.callback()
 		}
 	}
 </script>

@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import Vue from '../../dist/vue'
 import Router from 'vue-router'
 import Home from '@/pages/Home'
 import Articles from '@/pages/Articles'

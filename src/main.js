@@ -1,6 +1,6 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import Vue from 'vue'
+import Vue from '../dist/vue'
 import App from './App'
 import Test from './javascript-sink-in/index.js'
 import ThisTest from './javascript-sink-in/this_test.js'
@@ -8,6 +8,7 @@ import { TestClass } from './javascript-sink-in/index.js'
 // import ElementUI from 'element-ui';
 import { Button, Select } from 'element-ui';
 import confirm from '@/plugins/confirm'
+import Youtube from 'vue-youtube'
 import router from './router'
 import '../static/css/main.css'
 import 'element-ui/lib/theme-chalk/index.css';
@@ -18,6 +19,7 @@ import Common from './components/common'
 Vue.config.productionTip = false
 Vue.use(Common)
 Vue.use(confirm)
+Vue.use(Youtube)
 // Vue.use(ElementUI);
 Vue.component(Button.name, Button)
 Vue.component(Select.name, Select)

@@ -3,10 +3,10 @@
 		<div class="nl-confirm__wrapper" v-show="visible">
 			<div class="nl-confirm h-32 w-64 bg-gray-300 inline-block" >
 				<div class="nl-confirm__header py-6 px-4 text-lg">
-					<span>{{}}</span>
+					<span>{{title}}</span>
 				</div>
 				<div class="nl-confirm__body py-2 px-4 text-base">
-					<slot name="body"></slot>
+					<div>{{body}}</div>
 				</div>
 				<div class="nl-confirm__buttons">
 					<nl-button type="primary" label="confirm" @click.stop="confirm"></nl-button>
@@ -24,20 +24,22 @@
 			return {
 				visible: false,
 				title: '',
-				body: ''
+				body: '',
+				callBack: null
 			}
 		},
 		methods: {
 			show () {
 				this.title = arguments[0]
 				this.body = arguments[1]
+				this.callBack = arguments[2]
 				this.visible = true
 			},
 			hide (params) {
 
 			},
 			confirm () {
-
+				this.callBack()
 			}
 		},
 		beforeMount () {
