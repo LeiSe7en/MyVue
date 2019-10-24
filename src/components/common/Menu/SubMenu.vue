@@ -1,6 +1,6 @@
 <template>
-	<div class="submenu select-none collapse-enter-active">
-		<div class="flex p-1" @click.stop="toggle(_uid)" >
+	<div class="submenu select-none collapse-enter-active h-full" v-click-outside="handleClose">
+		<div class="flex p-1 items-center h-full" @click.stop="toggle(_uid)" >
 			<div class="menu-icon">
 				<slot name="icon"></slot>
 			</div>
@@ -11,8 +11,11 @@
 		<transition
 			@before-enter="beforeEnter"
 			@enter="enter"
-			@leave="leave">
-			<div v-show="active" :ref="_uid" class="side-submenu bg-gray-300 overflow-hidden border-l-2 border-indigo-500 py-0" :class="menuState.mode == 'horizontal' ? 'absolute' : 'relative'">
+			@after-enter="afterEnter"
+			@leave="leave"
+			@before-leave="beforeLeave"
+			v-bind:css="false">
+			<div v-show="active" :ref="_uid" class="side-submenu overflow-hidden border-l-2 border-indigo-500 py-0 rounded z-50 bg-white" :class="menuState.mode == 'horizontal' ? 'absolute' : 'relative'" style="min-width: 200px;">
 				<slot name="menu"></slot>
 			</div>
 		</transition>
@@ -21,6 +24,7 @@
 </template>
 <script>
 import { addClass, removeClass } from '@/utils/dom' 
+import ClickOutside from '@/directives/click-outside'
 	export default {
 		name: 'nl-submenu',
 		inject: {
@@ -28,6 +32,9 @@ import { addClass, removeClass } from '@/utils/dom'
 				default: null
 			}
 		},
+		directives: {
+      ClickOutside
+    },
 		computed: {
 			active () {
 				return this._uid == this.menuState.activeItem
@@ -50,6 +57,7 @@ import { addClass, removeClass } from '@/utils/dom'
 	      el.style.paddingTop = 0;
 	      el.style.paddingBottom = 0;
 		  },
+
 		  enter: function (el, done) {
 		  	el.dataset.oldOverflow = el.style.overflow;
 		  	if (el.scrollHeight !== 0) {
@@ -62,22 +70,33 @@ import { addClass, removeClass } from '@/utils/dom'
 		  	  el.style.paddingBottom = el.dataset.oldPaddingBottom;
 		  	}
 		  	el.style.overflow = 'hidden';
-		    done()
 		  },
-		  beforeLeave () {
-		  	removeClass(el, 'collapse-transition');
-		  	el.style.height = '';
-		  	el.style.overflow = el.dataset.oldOverflow;
+		  afterEnter(el) {
+		    // for safari: remove class then reset height is necessary
+		    removeClass(el, 'collapse-transition');
+		    el.style.height = '';
+		    el.style.overflow = el.dataset.oldOverflow;
+		  },
+		  beforeLeave: function (el) {
+		  	el.dataset.oldPaddingTop = el.style.paddingTop;
+  	    el.dataset.oldPaddingBottom = el.style.paddingBottom;
+  	    el.dataset.oldOverflow = el.style.overflow;
+
+  	    el.style.height = el.scrollHeight + 'px';
+  	    el.style.overflow = 'hidden';
 		  },
 		  leave: function (el, done) {
 		  	if (el.scrollHeight !== 0) {
+		  		addClass(el, 'collapse-transition');
 		  	  // for safari: add class after set height, or it will jump to zero height suddenly, weired
-		  	  addClass(el, 'collapse-transition');
-		  	  el.style.height = 0;
+		  	  
+		  	  el.style.height = '0';
 		  	  el.style.paddingTop = 0;
 		  	  el.style.paddingBottom = 0;
 		  	}
-		   	done()
+		  },
+		  handleClose () {
+		  	this.menuState.activeItem = null
 		  }
 		},
 		mounted () {
@@ -88,11 +107,11 @@ import { addClass, removeClass } from '@/utils/dom'
 	.collapse-transition {
 	  transition: 0.3s height ease-in-out, 0.3s padding-top ease-in-out, 0.3s padding-bottom ease-in-out;
 	}
-	.collapse-enter-active  {
-	  transition: 3s all ease-in-out;
-	}
-	.collapse-enter{
-		transform: translateX(10px);
-		height: 0;
-	}
+	// .collapse-enter-active  {
+	//   transition: 3s all ease-in-out;
+	// }
+	// .collapse-enter{
+	// 	transform: translateX(10px);
+	// 	height: 0;
+	// }
 </style>

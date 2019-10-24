@@ -1,5 +1,5 @@
 <template>
-	<div class="nl-button border-solid border inline-block" @click="handleClick"
+	<div class="nl-button border-solid border inline-block rounded" @click="handleClick"
 		:class="[
 			'nl-button-' + type,
 			'nl-button-' + size,
@@ -42,7 +42,8 @@
 <style lang="less">
 	.nl-button{
 		&-medium{
-			padding: 12px 23px;
+			@apply .py-1;
+			@apply .px-2;
 		}
 		&-primary{
 			@apply .border-teal-400;

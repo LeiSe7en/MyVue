@@ -8,6 +8,7 @@ import { TestClass } from './javascript-sink-in/index.js'
 // import ElementUI from 'element-ui';
 import { Button, Select } from 'element-ui';
 import confirm from '@/plugins/confirm'
+import MainHeader from '@/components/MainHeader'
 import router from './router'
 import '../static/css/main.css'
 import 'element-ui/lib/theme-chalk/index.css';
@@ -21,6 +22,7 @@ Vue.use(confirm)
 // Vue.use(ElementUI);
 Vue.component(Button.name, Button)
 Vue.component(Select.name, Select)
+Vue.component(MainHeader.name, MainHeader)
 /* eslint-disable no-new */
 // console.log(new Test())
 // Vue.mixin({

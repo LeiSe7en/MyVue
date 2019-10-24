@@ -10,7 +10,7 @@
 						Articles
 					</template>
 					<template #menu>
-						<nl-menu-item>
+						<nl-menu-item :to="{name: 'Articles', params: {id: 1}}">
 							Articles1
 						</nl-menu-item>
 						<nl-menu-item>

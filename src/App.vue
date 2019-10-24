@@ -1,10 +1,8 @@
 <template>
-  <div>
-    <nl-confirm></nl-confirm>
-    <router-view></router-view>
-  </div>
+  <default-layout></default-layout>
 </template>
 <script>
+  import defaultLayout from '@/layout/default'
 export default {
   name: 'App',
   data () {
@@ -12,23 +10,15 @@ export default {
       value: 'sdsds'
     }
   },
+  components: {
+    'default-layout': defaultLayout
+  },
   filters: {
     sdsds: function (value) {
       if (!value) return ''
       value = value.toString()
       return value.charAt(0).toUpperCase() + value.slice(1)
     }
-  },
-  render (h) {
-    return h('router-view')
-    // let self = this
-    // return h('input', {
-    //   domProps: {
-    //     value: this.value
-    //   }
-    // }, [
-    //     h('RouterView')
-    //   ])
   },
   mounted () {
   },
@@ -45,13 +35,5 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-}
-.container{
-  display: flex;
-  flex-direction: row;
-  flex: 1;
-  flex-basis: auto;
-  box-sizing: border-box;
-  min-width: 0;
 }
 </style>
