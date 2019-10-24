@@ -1,40 +1,15 @@
 <template>
-	<div >
-		<!-- <div style="height: 100vh;" class="flex flex-col">
-			<MainHeader></MainHeader>
-			<div class="flex-1" style="background-image: url('https://b2-q.mafengwo.net/s15/M00/C5/57/CoUBGV2UsG2AKEOcAB3GuPtBkPI291.png?imageMogr2%2Finterlace%2F1')"></div>
-		</div> -->
-		<div class="flex flex-col">
-			<MainHeader></MainHeader>
-			<div style="height: 300px;">
-				<nl-carousel transition="fade" autoPlay>
-					<nl-carousel-item>
-						<div class="h-full bg-cover bg-no-repeat" style="background-image: url('https://b2-q.mafengwo.net/s15/M00/C5/57/CoUBGV2UsG2AKEOcAB3GuPtBkPI291.png?imageMogr2%2Finterlace%2F1')"></div>
-					</nl-carousel-item>
-					<nl-carousel-item>
-						<div class="h-full bg-cover bg-no-repeat" style="background-image: url('http://b3-q.mafengwo.net/s15/M00/06/C6/CoUBGV2PnqaAAX0vAAYBRtqCiQ086.jpeg?imageMogr2%2Fstrip')"></div>
-					</nl-carousel-item>
-					<nl-carousel-item>
-						<div class="h-full bg-cover bg-no-repeat" style="background-image: url('https://b1-q.mafengwo.net/s15/M00/40/A2/CoUBGV2fBmmAaVS8ACWhrcSdF_I886.png?imageMogr2%2Finterlace%2F1')"></div>
-					</nl-carousel-item>
-					<nl-carousel-item>
-						<div class="h-full bg-cover bg-no-repeat" style="background-image: url('https://p1-q.mafengwo.net/s15/M00/BE/98/CoUBGV2dxteAamvJACkEsZuYyqs709.png?imageMogr2%2Finterlace%2F1')"></div>
-					</nl-carousel-item>
-					<nl-carousel-item>
-						<div class="h-full bg-cover bg-no-repeat" style="background-image: url('https://b1-q.mafengwo.net/s15/M00/FD/E5/CoUBGV2cdXqAGtqiACG30X9cs9M641.png?imageMogr2%2Finterlace%2F1')"></div>
-					</nl-carousel-item>
-				</nl-carousel>
-			</div>
+	<div>
+		<div class="show-case text-white text-center text-center">
+			<h1 class="p-4 pt-10">Love coding</h1>
+			<h5 class="p-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores aliquam animi maxime unde consectetur, accusantium adipisci, autem enim ipsam assumenda ea quaerat vero saepe nihil placeat sequi, ex vel sapiente.</h5>
+			<h3 class="p-6">Say Hi tO NeLson !!!</h3>
 		</div>
-		<nl-select v-model="selectedOpt">
-			<nl-option
-				v-for="(index, opt) in 5"
-			  :key="index"
-			  :value="'opt' + opt"
-			  :label="'opt' + opt"></nl-option>
-		</nl-select>
-	<!-- 	<iframe width="560" height="315" src="https://www.youtube.com/embed/Bv_5Zv5c-Ts" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+		<div class="language-box flex justify-between items-center">
+			
+		</div>
 	</div>
+	
 </template>
 <script>
 	import MainHeader from '@/components/MainHeader'
@@ -62,20 +37,16 @@
 	}
 </script>
 <style lang="less">
-	.el-carousel__item h3 {
-    color: #475669;
-    font-size: 14px;
-    opacity: 0.75;
-    line-height: 200px;
-    margin: 0;
-  }
-  
-  .el-carousel__item:nth-child(2n) {
-    background-color: #99a9bf;
-  }
-  
-  .el-carousel__item:nth-child(2n+1) {
-    background-color: #d3dce6;
-  }
+	.show-case{
+		height: 30vw;
+		width: 100vw;
+		background-image: url('https://assets.entrepreneur.com/content/3x2/2000/20150708172005-coding-working-workspace-apple-macintosh.jpeg?width=700&crop=2:1');
+		background-repeat:  no-repeat;
+		background-size: cover;
+	}
+	h3{
+		font-size: 26px;
+	}
+
 	
 </style>

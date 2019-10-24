@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div class="header w-full h-32 bg-gray-500">
-      
+    <div class="header w-full">
+      <MainHeader></MainHeader>
     </div>
-    <div class="container">
+    <div class="content">
       <router-view></router-view>
     </div>
     <div class="footer">

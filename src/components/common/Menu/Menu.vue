@@ -1,5 +1,5 @@
 <template>
-	<div class="nl-menu" :class="mode == 'horizontal' ? 'flex' : ''">
+	<div class="nl-menu items-center h-full" :class="mode == 'horizontal' ? 'flex' : ''">
 		<slot></slot>
 	</div>
 </template>

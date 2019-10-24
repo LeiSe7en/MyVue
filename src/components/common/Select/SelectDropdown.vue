@@ -3,7 +3,7 @@
     <ul class="nl-select-dropdown p-1" :style="styleObj" v-show="value">
       <slot></slot>
     </ul>
-s  </transition>
+  </transition>
 </template>
 <script>
   export default {

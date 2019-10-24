@@ -8,7 +8,11 @@ import { TestClass } from './javascript-sink-in/index.js'
 // import ElementUI from 'element-ui';
 import { Button, Select } from 'element-ui';
 import confirm from '@/plugins/confirm'
+<<<<<<< HEAD
 import Youtube from 'vue-youtube'
+=======
+import MainHeader from '@/components/MainHeader'
+>>>>>>> a880aabcd7eb220c356c6f5b9621bcf226cf785e
 import router from './router'
 import '../static/css/main.css'
 import 'element-ui/lib/theme-chalk/index.css';
@@ -23,6 +27,7 @@ Vue.use(Youtube)
 // Vue.use(ElementUI);
 Vue.component(Button.name, Button)
 Vue.component(Select.name, Select)
+Vue.component(MainHeader.name, MainHeader)
 /* eslint-disable no-new */
 // console.log(new Test())
 // Vue.mixin({
