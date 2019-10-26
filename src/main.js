@@ -11,6 +11,7 @@ import confirm from '@/plugins/confirm'
 import Youtube from 'vue-youtube'
 import MainHeader from '@/components/MainHeader'
 import router from './router'
+import VueScrollMagic from 'vue-scrollmagic'
 import '../static/css/main.css'
 import 'element-ui/lib/theme-chalk/index.css';
 // import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
@@ -21,6 +22,7 @@ Vue.config.productionTip = false
 Vue.use(Common)
 Vue.use(confirm)
 Vue.use(Youtube)
+Vue.use(VueScrollMagic)
 // Vue.use(ElementUI);
 Vue.component(Button.name, Button)
 Vue.component(Select.name, Select)

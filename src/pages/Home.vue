@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="home">
     <div class="show-case text-white text-center text-center flex justify-center flex-col">
       <h1 class="p-4 pt-10" style="font-family: Arapey;">Love coding</h1>
       <h5 class="p-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores aliquam animi maxime unde consectetur, accusantium adipisci, autem enim ipsam assumenda ea quaerat vero saepe nihil placeat sequi, ex vel sapiente.</h5>
@@ -14,14 +14,19 @@
       
       <div class="language-box flex justify-between items-center py-10">
         <div class="language-item flex-1 flex flex-col items-center justify-center" v-for="item in languages" :key="item.name">
-          <img :src="item.image" class="w-40 h-40"/>
-          <p class="text-center p-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea numquam, delectus nobis ratione magnam, perspiciatis placeat ?</p>
+          <div class="discription-box">
+            <img :src="item.image" class="w-40 h-40"/>
+            <p class="text-center p-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea numquam, delectus nobis ratione magnam, perspiciatis placeat ?</p>
+          </div>
+          <div class="hover-box text-2xl font-bold">
+            {{item.hoverText}}
+          </div>
         </div>
       </div>
       <div class="scroll relative p-4">
-        <p class="absolute text-2xl w-1/3 mt-20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi id placeat at quaerat, dignissimos quia corporis necessitatibus obcaecati magni ducimus quisquam <span class="block bg-red-600 h-2 mt-2"></span></p>
-        <img class="absolute" src="../../static/images/sample1.jpeg">
-        <img class="absolute" src="../../static/images/sample2.jpeg">
+        <p id="text" class="absolute text-2xl w-1/3 mt-20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi id placeat at quaerat, dignissimos quia corporis necessitatibus obcaecati magni ducimus quisquam <span class="block bg-red-600 h-2 mt-2"></span></p>
+        <img id="shape1" class="absolute" src="../../static/images/sample1.jpeg">
+        <img id="shape2" class="absolute" src="../../static/images/sample2.jpeg">
       </div>  
     </div>
     
@@ -31,6 +36,7 @@
 <script>
   import MainHeader from '@/components/MainHeader'
   import { Carousel } from 'element-ui'
+  import { TweenMax, TimelineMax } from 'gsap'
   export default {
     name: 'sss',
     components: {MainHeader, Carousel},
@@ -41,9 +47,10 @@
         currentIndex: 0,
         selectedOpt: '',
         languages: [
-          {name: 'Vue', image: '../../static/images/Vue.png', text: '渐进式JavaScript 框架'},
-          {name: 'Nuxt', image: '../../static/images/Nuxt.png', text: 'Vue.js 服务器端渲染'},
-          {name: 'CSS3', image: '../../static/images/Css3.svg', text: 'Cascading Style Sheets Level 3'}
+          {name: 'Vue', image: '../../static/images/Vue.png', text: '渐进式JavaScript 框架', hoverText: 'Hi vue'},
+          {name: 'Nuxt', image: '../../static/images/Nuxt.png', text: 'Vue.js 服务器端渲染', hoverText: 'Hi nuxt'},
+          {name: 'CSS3', image: '../../static/images/Css3.svg', text: 'Cascading Style Sheets Level 3', hoverText: 'Hi css3'},
+          {name: 'Mini-program', image: '../../static/images/miniprogram.jpg', text: 'Cascading Style Sheets Level 3', hoverText: 'Hi miniprogram'}
         ]
       }
     },
@@ -53,8 +60,65 @@
       }
     },
     mounted () {
-      // let el = this.$el
-      // console.log(this.constructor.options)
+      
+      const wrapScene = this.$scrollmagic.scene({
+        triggerElement: '.scroll',
+        triggerHook: 'onCenter',
+        duration: '0%',
+        offset: '-200%'
+      }).setTween (
+        TweenMax.from('.scroll', 1, {
+          css: {
+            x: '-100%',
+            opacity: 0,
+          }
+        })
+      )
+      const timeline = new TimelineMax()
+      timeline.add([
+        TweenMax.to('#shape1', 1, {
+          scale: 1.8,
+          rotation: 180,
+          borderRadius: '50%'
+        }),
+        TweenMax.from('#shape2', 1, 
+        {
+          opacity: 0,
+          top: '-100',
+          delay: .5
+        }),
+        TweenMax.from('#text', 1, {
+          x: 100,
+          opacity: 0,
+          delay: .5
+        })]
+      )
+      const shapScene = this.$scrollmagic.scene({
+        triggerElement: '.scroll',
+        triggerHook: 'onCenter',
+      }).setTween(timeline)
+      // timeline.add([
+      //   TweenMax.to('#shape1', 1, {
+      //     css: {
+      //       top: '95%',
+      //       marginTop: '-50px',
+      //       borderRadius: '50%',
+      //       scale: '0.5'
+      //     }
+      //   }),
+      //   TweenMax.fromTo('#shape2', 1,
+      //     {
+      //       scale: '0'
+      //     },
+      //     {
+      //       scale: '1.8',
+      //       borderWidth: 0
+      //     }
+      //   )
+      // ])
+      
+      // add scenes to window scrollmagic controller
+      this.$scrollmagic.addScene([wrapScene, shapScene])
     }
   }
 </script>
@@ -81,6 +145,24 @@
       right: 20%;
       top: 20%;
       margin-top: 10%;
+    }
+  }
+  .language-item{
+    position: relative;
+    img{
+      margin: 0 auto;
+    }
+    .hover-box{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 1s;
+      background-color: #f8f8f8;
+      &:hover{
+        opacity: 1;
+      }
     }
   }
   
