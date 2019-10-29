@@ -4,6 +4,8 @@ import Home from '@/pages/Home'
 import Articles from '@/pages/Articles'
 import VideoResourses from '@/pages/VideoResourses'
 import ScrollMagic from '@/pages/ScrollMagic'
+import Inspirations from '@/pages/inspirations'
+import InspirationShow from '@/pages/inspirations/InspirationShow'
 
 Vue.use(Router)
 
@@ -29,6 +31,16 @@ export default new Router({
       path: '/scroll-magic',
       name: 'ScrollMagic',
       component: ScrollMagic
+    },
+    {
+      path: '/inspirations',
+      name: 'Inspirations',
+      component: Inspirations
+    },
+    {
+      path: '/inspiration-show/:id',
+      name: 'InspirationShow',
+      component: InspirationShow
     }
   ]
 })

@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div class="show-case text-white text-center text-center flex justify-center flex-col">
+    <div class="show-case bg-fixed text-white text-center text-center flex justify-center flex-col">
       <h1 class="p-4 pt-10" style="font-family: Arapey;">Love coding</h1>
       <h5 class="p-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores aliquam animi maxime unde consectetur, accusantium adipisci, autem enim ipsam assumenda ea quaerat vero saepe nihil placeat sequi, ex vel sapiente.</h5>
       <h3 class="p-6">Say Hi tO NeLson !!!</h3>
@@ -12,14 +12,17 @@
     </div>
     <div class="container">
       
-      <div class="language-box flex justify-between items-center py-10">
+      <div class="language-box flex justify-between items-center py-10 mb-10">
         <div class="language-item flex-1 flex flex-col items-center justify-center" v-for="item in languages" :key="item.name">
-          <div class="discription-box">
+          <div class="discription-box front">
             <img :src="item.image" class="w-40 h-40"/>
             <p class="text-center p-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea numquam, delectus nobis ratione magnam, perspiciatis placeat ?</p>
           </div>
-          <div class="hover-box text-2xl font-bold">
+          <div class="back text-2xl font-bold">
             {{item.hoverText}}
+            <p class="desc text-xs p-4 text-gray-600">
+              {{item.desc}}
+            </p>
           </div>
         </div>
       </div>
@@ -27,6 +30,11 @@
         <p id="text" class="absolute text-2xl w-1/3 mt-20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi id placeat at quaerat, dignissimos quia corporis necessitatibus obcaecati magni ducimus quisquam <span class="block bg-red-600 h-2 mt-2"></span></p>
         <img id="shape1" class="absolute" src="../../static/images/sample1.jpeg">
         <img id="shape2" class="absolute" src="../../static/images/sample2.jpeg">
+      </div>  
+
+      <div class="text-center font-bold text-2xl shadow-xl py-8 bg-blue-300 rounded-lg mb-20">
+        <p class="py-8 text-gray-600">I wanna share this my favorite video to all of my visitors.</p>
+        <iframe width="500px" height="300px" style="margin: 0 auto;" src="https://www.youtube.com/embed/UX36flnDv-0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>  
     </div>
     
@@ -47,10 +55,10 @@
         currentIndex: 0,
         selectedOpt: '',
         languages: [
-          {name: 'Vue', image: '../../static/images/Vue.png', text: '渐进式JavaScript 框架', hoverText: 'Hi vue'},
-          {name: 'Nuxt', image: '../../static/images/Nuxt.png', text: 'Vue.js 服务器端渲染', hoverText: 'Hi nuxt'},
+          {name: 'Vue', image: '../../static/images/Vue.png', text: '渐进式JavaScript 框架', hoverText: 'Hi vue', desc: 'The Progressive JavaScript Framework'},
+          {name: 'Nuxt', image: '../../static/images/Nuxt.png', text: 'Vue.js 服务器端渲染', hoverText: 'Hi nuxt', desc: 'The most popular mode for Nuxt. With SSR, also called "universal" or "isomorphic" mode, a Node.js server will be used to deliver HTML based on your Vue components to the client instead of the pure javascript. Using SSR will lead to a large SEO boost, better UX and more opportunities (compared to a traditional Vue SPA).'},
           {name: 'CSS3', image: '../../static/images/Css3.svg', text: 'Cascading Style Sheets Level 3', hoverText: 'Hi css3'},
-          {name: 'Mini-program', image: '../../static/images/miniprogram.jpg', text: 'Cascading Style Sheets Level 3', hoverText: 'Hi miniprogram'}
+          {name: 'Mini-program', image: '../../static/images/miniprogram.jpg', text: 'Cascading Style Sheets Level 3', hoverText: 'Hi miniprogram', desc: '小程序是一种新的开放能力，开发者可以快速地开发一个小程序。小程序可以在微信内被便捷地获取和传播，同时具有出色的使用体验。'}
         ]
       }
     },
@@ -134,7 +142,7 @@
     font-size: 26px;
   }
   .scroll{
-    height: 100vh;
+    height: 80vh;
     img:nth-of-type(1){
       width: 25%;
       right: 15%;
@@ -148,7 +156,47 @@
     }
   }
   .language-item{
+    border-radius: 20px;
     position: relative;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: all 1s ease;
+    cursor: pointer;
+    .front {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      backface-visibility: hidden;
+    }
+    .back{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      text-align: center;
+    }
+    &:nth-of-type(2n){
+      .back{
+        opacity: 0;
+        background-color: #f8f8f8;
+        transition: opacity 0.5s ease;
+        &:hover{
+          opacity: 1;
+        }
+      }
+      
+    }
+    &:nth-of-type(2n+1){
+      .back{
+        backface-visibility: hidden;
+        transform: rotateY(180deg);
+      }
+      &:hover{transform: rotateY(180deg);}
+    }
+    
     img{
       margin: 0 auto;
     }
