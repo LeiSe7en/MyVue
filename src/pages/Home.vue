@@ -32,10 +32,10 @@
         <img id="shape2" class="absolute" src="../../static/images/sample2.jpeg">
       </div>  
 
-      <div class="text-center font-bold text-2xl shadow-xl py-8 bg-blue-300 rounded-lg mb-20">
+      <!-- <div class="text-center font-bold text-2xl shadow-xl py-8 bg-blue-300 rounded-lg mb-20">
         <p class="py-8 text-gray-600">I wanna share this my favorite video to all of my visitors.</p>
         <iframe width="500px" height="300px" style="margin: 0 auto;" src="https://www.youtube.com/embed/UX36flnDv-0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>  
+      </div>   -->
     </div>
     
   </div>
