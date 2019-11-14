@@ -27,6 +27,12 @@
 				<nl-menu-item>
 				  Pictures
 				</nl-menu-item>
+				<nl-menu-item :to="{name: 'Inspirations'}">
+				  Inspirations
+				</nl-menu-item>
+				<nl-menu-item :to="{name: 'Algorithm'}">
+				  Algorithm
+				</nl-menu-item>
 			</nl-menu>
 			<div class="login-out flex">
 				<div class="icon icon-weibo mr-2"></div>	

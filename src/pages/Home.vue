@@ -55,10 +55,10 @@
         currentIndex: 0,
         selectedOpt: '',
         languages: [
-          {name: 'Vue', image: '../../static/images/Vue.png', text: '渐进式JavaScript 框架', hoverText: 'Hi vue', desc: 'The Progressive JavaScript Framework'},
-          {name: 'Nuxt', image: '../../static/images/Nuxt.png', text: 'Vue.js 服务器端渲染', hoverText: 'Hi nuxt', desc: 'The most popular mode for Nuxt. With SSR, also called "universal" or "isomorphic" mode, a Node.js server will be used to deliver HTML based on your Vue components to the client instead of the pure javascript. Using SSR will lead to a large SEO boost, better UX and more opportunities (compared to a traditional Vue SPA).'},
-          {name: 'CSS3', image: '../../static/images/Css3.svg', text: 'Cascading Style Sheets Level 3', hoverText: 'Hi css3'},
-          {name: 'Mini-program', image: '../../static/images/miniprogram.jpg', text: 'Cascading Style Sheets Level 3', hoverText: 'Hi miniprogram', desc: '小程序是一种新的开放能力，开发者可以快速地开发一个小程序。小程序可以在微信内被便捷地获取和传播，同时具有出色的使用体验。'}
+          {name: 'Vue', image: 'static/images/Vue.png', text: '渐进式JavaScript 框架', hoverText: 'Hi vue', desc: 'The Progressive JavaScript Framework'},
+          {name: 'Nuxt', image: 'static/images/Nuxt.png', text: 'Vue.js 服务器端渲染', hoverText: 'Hi nuxt', desc: 'The most popular mode for Nuxt. With SSR, also called "universal" or "isomorphic" mode, a Node.js server will be used to deliver HTML based on your Vue components to the client instead of the pure javascript. Using SSR will lead to a large SEO boost, better UX and more opportunities (compared to a traditional Vue SPA).'},
+          {name: 'CSS3', image: 'static/images/Css3.svg', text: 'Cascading Style Sheets Level 3', hoverText: 'Hi css3'},
+          {name: 'Mini-program', image: 'static/images/miniprogram.jpg', text: 'Cascading Style Sheets Level 3', hoverText: 'Hi miniprogram', desc: '小程序是一种新的开放能力，开发者可以快速地开发一个小程序。小程序可以在微信内被便捷地获取和传播，同时具有出色的使用体验。'}
         ]
       }
     },
