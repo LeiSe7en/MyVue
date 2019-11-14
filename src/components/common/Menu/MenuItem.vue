@@ -1,9 +1,9 @@
 <template>
-	<component :is="tag" :to="to"  class="menu-item flex items-center p-1">
+	<component :is="tag" :to="to"  class="menu-item flex items-center p-4">
 		<div class="menu-icon">
 			<slot name="icon"></slot>
 		</div>
-		<div class="font-medium ml-2">
+		<div class="font-medium ml-2 uppercase">
 			<slot></slot>
 		</div>
 	</component>
