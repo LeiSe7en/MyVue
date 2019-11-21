@@ -14,7 +14,7 @@
       
       <div class="language-box flex justify-between items-center py-10">
         <div class="language-item flex-1 flex flex-col items-center justify-center" v-for="item in languages" :key="item.name">
-          <img :src="item.image" class="w-40 h-40"/>
+          <img src="../../static/images/Vue.png" class="w-40 h-40"/>
           <p class="text-center p-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea numquam, delectus nobis ratione magnam, perspiciatis placeat ?</p>
         </div>
       </div>

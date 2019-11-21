@@ -73,3 +73,6 @@ console.log(TestClass.sayStatic()) // Static
 /*Uncaught TypeError: (intermediate value).sayStatic is not a function*/
 // console.log(new TestClass().sayStatic()) 
 
+
+
+
