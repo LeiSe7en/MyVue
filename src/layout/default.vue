@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main-container">
     <div class="header w-full">
       <MainHeader></MainHeader>
     </div>
@@ -7,7 +7,6 @@
       <router-view></router-view>
     </div>
     <div class="footer">
-      
     </div>
   </div>
   
@@ -17,3 +16,10 @@
     name: 'layout'
   }
 </script>
+<style>
+  .main-container {
+    background-image: url(../../static/images/main_background_4.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+</style>

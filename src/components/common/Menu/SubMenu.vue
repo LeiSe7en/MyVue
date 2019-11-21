@@ -1,10 +1,10 @@
 <template>
-	<div class="submenu select-none collapse-enter-active h-full" v-click-outside="handleClose">
-		<div class="flex p-1 items-center h-full" @click.stop="toggle(_uid)" >
+	<div class="submenu select-none collapse-enter-active h-full p-4" v-click-outside="handleClose">
+		<div class="flex p-4 items-center h-full" @click.stop="toggle(_uid)" >
 			<div class="menu-icon">
 				<slot name="icon"></slot>
 			</div>
-			<div class="font-medium ml-2">
+			<div class="font-medium ml-2 uppercase">
 				<slot></slot>
 			</div>
 		</div>

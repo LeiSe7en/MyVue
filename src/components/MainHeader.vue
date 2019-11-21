@@ -1,38 +1,43 @@
 <template>
-	<div class="w-full h-12 shadow bg-white">
-		<div class="container h-12 flex items-center justify-between">
+	<div class="w-full shadow bg-white">
+		<div class="container h-20 flex items-center justify-between">
 			<nl-menu mode="horizontal">
 				<router-link :to="{name: 'Home'}">
-					<div class="icon icon-logo w-8 h-8 bg-no-repeat">
+					<div class="icon-logo w-16 h-16 bg-no-repeat rounded-full">
 						
 					</div>
 				</router-link>
-
-				<nl-submenu>
-					<template>
-						Articles
-					</template>
-					<template #menu>
-						<nl-menu-item :to="{name: 'Articles', params: {id: 1}}">
-							Articles1
-						</nl-menu-item>
-						<nl-menu-item>
-							Articles2
-						</nl-menu-item>
-						<nl-menu-item>
-							Articles3
-						</nl-menu-item>
-					</template>
-				</nl-submenu>
-				<nl-menu-item>
-				  Pictures
-				</nl-menu-item>
+				<div class="flex justify-end w-full h-full px-8">
+					<nl-submenu>
+						<template>
+							Articles
+						</template>
+						<template #menu>
+							<nl-menu-item :to="{name: 'Articles', params: {id: 1}}">
+								Articles1
+							</nl-menu-item>
+							<nl-menu-item>
+								Articles2
+							</nl-menu-item>
+							<nl-menu-item>
+								Articles3
+							</nl-menu-item>
+						</template>
+					</nl-submenu>
+					<nl-menu-item>
+					  Pictures
+					</nl-menu-item>
+					<nl-menu-item :to="{name: 'Inspirations'}">
+					  Inspirations
+					</nl-menu-item>
+					<nl-menu-item :to="{name: 'Algorithm'}">
+					  Algorithm
+					</nl-menu-item>
+				</div>
 			</nl-menu>
-			<div class="login-out flex">
-				<div class="icon icon-weibo mr-2"></div>	
-				<div class="icon icon-wechat mr-2"></div>	
-				<div class="qq"></div>	
-			</div>
+			<a class="login-out flex block" href="https://github.com/LeiSe7en">
+				<div class="icon-github"></div>	
+			</a>
 		</div>
 	</div>
 </template>
@@ -50,14 +55,22 @@
 		overflow: hidden;
 	}
 	.icon-logo{
-		width: 150px;
-		background-position: 0 0;
-		height: 40px;
+		background-image: url(../../static/images/nelson.jpeg);
+		background-size: cover;
+		background-repeat: no-repeat;
 	}
 	.icon-weibo{
 		background-position: 0 -50px;
 	}
 	.icon-wechat{
 		background-position: 0 -165px;
+	}
+	.icon-github{
+		height: 26px;
+		width: 26px;
+		background-size: contain;
+		overflow: hidden;
+		background-image: url('../../static/images/github.png');
+
 	}
 </style>
