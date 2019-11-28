@@ -1,5 +1,6 @@
 <template>
-  <default-layout></default-layout>
+  <!-- <default-layout></default-layout> -->
+  <router-view></router-view>
 </template>
 <script>
   import defaultLayout from '@/layout/default'

@@ -75,4 +75,10 @@ console.log(TestClass.sayStatic()) // Static
 
 
 
+/* Proxy */
+
+const handler = function () {
+	console.log(...args)
+}
+
 

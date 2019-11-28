@@ -1,5 +1,5 @@
-import Vue from 'vue'
-import Router from '../../dist/vue-router'
+import Vue from '../../dist/vue'
+import Router from 'vue-router'
 import Home from '@/pages/Home'
 import Articles from '@/pages/Articles'
 import VideoResourses from '@/pages/VideoResourses'

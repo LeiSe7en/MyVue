@@ -1,6 +1,6 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import Vue from 'vue'
+import Vue from '../dist/vue'
 import App from './App'
 import Test from './javascript-sink-in/index.js'
 import ThisTest from './javascript-sink-in/this_test.js'
@@ -23,7 +23,7 @@ Vue.config.productionTip = false
 Vue.use(Common)
 Vue.use(confirm)
 Vue.use(Youtube)
-Vue.use(VueScrollMagic)
+Vue.use(VueScrollMagic, {refreshInterval: 10000000})
 // Vue.use(ElementUI);
 Vue.component(Button.name, Button)
 Vue.component(Select.name, Select)
