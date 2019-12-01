@@ -3,7 +3,7 @@
     <div class="header w-full">
       <MainHeader></MainHeader>
     </div>
-    <div class="content">
+    <div class="content min-h-screen pt-20">
       <router-view></router-view>
     </div>
     <div class="footer">

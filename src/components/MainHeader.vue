@@ -1,5 +1,5 @@
 <template>
-	<div class="w-full shadow bg-white">
+	<div class="w-full shadow bg-white fixed z-50">
 		<div class="container h-20 flex items-center justify-between">
 			<nl-menu mode="horizontal">
 				<router-link :to="{name: 'Home'}">
