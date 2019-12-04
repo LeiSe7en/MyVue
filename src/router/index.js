@@ -6,6 +6,7 @@ import VideoResourses from '@/pages/VideoResourses'
 import ScrollMagic from '@/pages/ScrollMagic'
 import Inspirations from '@/pages/inspirations'
 import InspirationShow from '@/pages/inspirations/InspirationShow'
+import Pictures from '@/pages/Pictures'
 
 Vue.use(Router)
 
@@ -41,6 +42,11 @@ export default new Router({
       path: '/inspiration-show/:id',
       name: 'InspirationShow',
       component: InspirationShow
+    },
+    {
+      path: '/pictures',
+      name: 'Pictures',
+      component: Pictures
     }
   ]
 })

@@ -1,3 +1,4 @@
 import ParallaxWebsite from './ParallaxWebsite'
-const array = [ ParallaxWebsite ]
+import HamburgerMenu from './HamburgerMenu'
+const array = [ ParallaxWebsite, HamburgerMenu ]
 export default array
