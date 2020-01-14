@@ -10,6 +10,8 @@
 	</div>
 </template>
 <script>
+	import { debounce } from '@/utils'
+	import MyPromise from '@/utils/myPromise'
 	export default {
 		name: 'Articles',
 		data () {
@@ -29,7 +31,17 @@
 		methods: {
 			togglePara () {
 				this.array.splice(0,1)
-			}
+			},
+			tapAA: debounce(() => {
+				console.log('tapAA', this)
+			})
+		},
+		mounted () {
+		  new MyPromise((resovle, reject) => {
+				resovle(1)
+			}).then(res => {
+				console.log('then1')
+			}).then(res => {console.log('then2')})
 		}
 	}
 </script>

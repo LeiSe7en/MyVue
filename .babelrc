@@ -2,6 +2,7 @@
   "presets": ["env"],
   "plugins": [
   	"transform-vue-jsx",
+"transform-class-properties",
     "transform-runtime",
   	"transform-remove-strict-mode",
   	["component",
